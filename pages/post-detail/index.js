@@ -1,2 +1,8 @@
-// pages/post-detail/index.js
-Page={ data: { pageTitle: 'post-detail' } };
+Page({
+  data: {
+    pageTitle: 'post-detail'
+  },
+  onLoad() {
+    console.log('[pages/post-detail] loaded');
+  }
+});
