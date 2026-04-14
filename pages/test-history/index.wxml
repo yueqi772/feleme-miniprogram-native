@@ -1,0 +1,20 @@
+<view class="page">
+  <view class="page-header">
+    <text class="page-title">📊 测试历史</text>
+  </view>
+  <view class="history-list">
+    <view wx:for="{{history}}" wx:key="id" class="history-item" bindtap="goReport" data-id="{{item.id}}">
+      <view class="history-left">
+        <text class="history-date">{{item.date}}</text>
+        <text class="history-level">{{item.riskLevel || item.emoji}}</text>
+      </view>
+      <view class="history-right">
+        <text class="history-score {{item.score >= 60 ? 'green' : item.score >= 40 ? 'orange' : 'red'}}">{{item.score}}</text>
+        <text class="history-del" catchtap="deleteItem" data-id="{{item.id}}">🗑</text>
+      </view>
+    </view>
+    <view wx:if="{{history.length === 0}}" class="empty-state">
+      <text>还没有测试记录</text>
+    </view>
+  </view>
+</view>
