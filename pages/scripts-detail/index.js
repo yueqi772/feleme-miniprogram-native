@@ -1,2 +1,8 @@
-// pages/scripts-detail/index.js
-Page={ data: { pageTitle: 'scripts-detail' } };
+Page({
+  data: {
+    pageTitle: 'scripts-detail'
+  },
+  onLoad() {
+    console.log('[pages/scripts-detail] loaded');
+  }
+});
