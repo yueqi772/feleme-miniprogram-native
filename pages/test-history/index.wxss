@@ -1,0 +1,15 @@
+/* pages/test-history/index.wxss */
+.page { min-height: 100vh; background: #f5f7fa; }
+.page-header { background: #fff; padding: calc(env(safe-area-inset-top) + 40rpx) 32rpx 32rpx; }
+.page-title { font-size: 40rpx; font-weight: 700; }
+.history-list { padding: 24rpx; display: flex; flex-direction: column; gap: 16rpx; }
+.history-item { background: #fff; border-radius: 16rpx; padding: 28rpx; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04); }
+.history-date { font-size: 28rpx; font-weight: 600; display: block; margin-bottom: 8rpx; }
+.history-level { font-size: 24rpx; color: #999; }
+.history-right { display: flex; align-items: center; gap: 20rpx; }
+.history-score { font-size: 48rpx; font-weight: 800; }
+.green { color: #16a34a; }
+.orange { color: #ea580c; }
+.red { color: #dc2626; }
+.history-del { font-size: 28rpx; padding: 8rpx; }
+.empty-state { text-align: center; padding: 80rpx; color: #999; }
