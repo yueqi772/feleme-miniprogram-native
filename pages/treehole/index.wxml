@@ -1,0 +1,87 @@
+<view class="page">
+  <!-- Header -->
+  <view class="page-header">
+    <text class="page-title">🌳 情绪树洞</text>
+    <text class="page-sub">安全私密，记录真实感受</text>
+  </view>
+
+  <!-- Diary List -->
+  <view class="diary-list">
+    <view wx:for="{{diaries}}" wx:key="id" class="diary-item" bindtap="openDiary" data-diary="{{item}}">
+      <view class="diary-header">
+        <view class="diary-meta">
+          <text class="diary-emotion">{{item.emotion}}</text>
+          <text class="diary-date">{{item.date}}</text>
+        </view>
+        <view class="diary-emoji-sm">{{item.emotion === '愤怒' ? '😠' : item.emotion === '委屈' ? '😢' : item.emotion === '焦虑' ? '😰' : item.emotion === '平静' ? '😊' : '😐'}}</view>
+      </view>
+      <text class="diary-content">{{item.content}}</text>
+      <text wx:if="{{item.messages && item.messages.length > 0}}" class="diary-reply-count">💬 {{item.messages.length}} 条对话</text>
+    </view>
+
+    <!-- Empty -->
+    <view wx:if="{{diaries.length === 0}}" class="empty-state">
+      <text class="empty-icon">🌱</text>
+      <text class="empty-title">还没有日记</text>
+      <text class="empty-sub">写下第一条情绪日记，记录真实的自己</text>
+    </view>
+  </view>
+
+  <!-- FAB -->
+  <view class="fab" bindtap="openEditor">
+    <text class="fab-icon">✏️</text>
+  </view>
+
+  <!-- Editor Modal -->
+  <view wx:if="{{showEditor}}" class="modal-mask" bindtap="closeEditor">
+    <view class="modal-box" catchtap="noop">
+      <view class="modal-header">
+        <text class="modal-title">📝 记录今日情绪</text>
+        <text class="modal-close" bindtap="closeEditor">✕</text>
+      </view>
+
+      <!-- Emotion Picker -->
+      <view class="emotion-picker">
+        <text class="picker-label">今日主要情绪</text>
+        <view class="emotion-chips">
+          <view wx:for="{{emotions}}" wx:key="value" class="emotion-chip {{selectedEmotion === item.value ? 'selected' : ''}}" bindtap="selectEmotion" data-value="{{item.value}}">
+            <text>{{item.label}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- Content -->
+      <textarea class="diary-textarea" placeholder="今天发生了什么？你的感受是什么？" value="{{diaryContent}}" bindinput="onContentInput" maxlength="2000" auto-height />
+      <text class="char-count">{{diaryContent.length}}/2000</text>
+
+      <button class="btn-submit" bindtap="submitDiary">🌱 保存日记</button>
+    </view>
+  </view>
+
+  <!-- Diary Detail Modal -->
+  <view wx:if="{{selectedDiary}}" class="modal-mask" bindtap="closeDiary">
+    <view class="modal-box diary-detail" catchtap="noop">
+      <view class="modal-header">
+        <text class="modal-title">{{selectedDiary.emotion}}</text>
+        <view class="flex gap-2">
+          <text class="text-xs text-gray">{{selectedDiary.date}}</text>
+          <text class="modal-close" bindtap="closeDiary">✕</text>
+        </view>
+      </view>
+      <text class="detail-content">{{selectedDiary.content}}</text>
+
+      <!-- Messages -->
+      <view wx:for="{{selectedDiary.messages}}" wx:key="id" class="msg-item {{item.role === 'user' ? 'msg-user' : 'msg-ai'}}">
+        <text class="msg-role">{{item.role === 'user' ? '你' : 'AI'}}</text>
+        <text class="msg-text">{{item.content}}</text>
+      </view>
+
+      <!-- Reply -->
+      <view class="reply-box">
+        <input class="reply-input" placeholder="输入回复..." value="{{replyContent}}" bindinput="onReplyInput" />
+        <button class="btn-send" bindtap="submitReply">发送</button>
+      </view>
+      <button class="btn-delete-sm" bindtap="deleteDiary" data-id="{{selectedDiary.id}}">🗑 删除日记</button>
+    </view>
+  </view>
+</view>
