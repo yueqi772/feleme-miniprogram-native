@@ -1,0 +1,53 @@
+<view class="page" wx:if="{{isLoaded}}">
+  <!-- Header -->
+  <view class="report-header" style="background:{{risk.bg}};">
+    <text class="report-date">{{test.dateStr}}</text>
+    <text class="report-emoji {{risk.level}}">{{risk.emoji}}</text>
+    <text class="report-level {{risk.level}}">{{risk.level}}</text>
+    <text class="report-tip">{{risk.tip}}</text>
+  </view>
+
+  <!-- Score -->
+  <view class="score-section">
+    <view class="score-ring">
+      <view class="score-ring-inner">
+        <text class="score-big" style="color:{{risk.color}}">{{test.score}}</text>
+        <text class="score-total">/100</text>
+      </view>
+    </view>
+    <view class="score-bar-full">
+      <view class="score-bar-fill" style="width:{{test.score}}%;background:{{risk.color}}"></view>
+    </view>
+  </view>
+
+  <!-- Categories -->
+  <view class="section">
+    <text class="section-title">🔍 问题行为分析</text>
+    <view wx:for="{{categories}}" wx:key="cat" class="cat-card" style="border-left:6rpx solid {{item.color}};background:{{item.bg}};">
+      <view class="cat-header">
+        <text class="cat-emoji">{{item.emoji}}</text>
+        <text class="cat-name">{{item.cat}}</text>
+        <text class="cat-count" style="color:{{item.color}}">×{{item.count}}</text>
+        <view class="cat-bar-bg">
+          <view class="cat-bar-fill" style="width:{{item.pct}}%;background:{{item.color}}"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Strategies -->
+  <view class="section" wx:if="{{strategies.length > 0}}">
+    <text class="section-title">💡 应对建议</text>
+    <view wx:for="{{strategies}}" wx:key="*this" class="strategy-item">
+      <text class="strategy-icon">💡</text>
+      <text class="strategy-text">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- Actions -->
+  <view class="action-section">
+    <button class="btn-full btn-brand btn-lg" bindtap="goTest">🔄 重新测试</button>
+    <button class="btn-full btn-outline mt-2" bindtap="goPractice">🎭 情景练习</button>
+    <button class="btn-full btn-ghost mt-2" bindtap="goTreehole">📝 记录情绪日记</button>
+  </view>
+</view>
