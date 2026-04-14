@@ -1,1 +1,1 @@
-<view class='page'><text class='stub-title'>post-detail</text></view>
+<view class="page"><view class="stub"><text class="stub-icon">✨</text><text class="stub-title">post-detail</text></view></view>
