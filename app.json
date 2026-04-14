@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/test/index",
+    "pages/report/index",
+    "pages/tools/index",
+    "pages/scripts-detail/index",
+    "pages/practice/index",
+    "pages/treehole/index",
+    "pages/community/index",
+    "pages/new-post/index",
+    "pages/post-detail/index",
+    "pages/profile/index",
+    "pages/test-history/index",
+    "pages/leave-decision/index",
+    "pages/onboarding/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "A里味",
+    "backgroundColor": "#f5f5f5",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#07c160",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "static/tabs/home.png",
+        "selectedIconPath": "static/tabs/home-active.png"
+      },
+      {
+        "pagePath": "pages/treehole/index",
+        "text": "树洞",
+        "iconPath": "static/tabs/tree.png",
+        "selectedIconPath": "static/tabs/tree-active.png"
+      },
+      {
+        "pagePath": "pages/community/index",
+        "text": "社区",
+        "iconPath": "static/tabs/community.png",
+        "selectedIconPath": "static/tabs/community-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "static/tabs/profile.png",
+        "selectedIconPath": "static/tabs/profile-active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取位置信息用于内容推荐"
+    }
+  },
+  "requiredBackgroundModes": ["audio"],
+  "usingComponents": {}
+}
