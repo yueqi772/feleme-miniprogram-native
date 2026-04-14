@@ -1,0 +1,2 @@
+/* pages/post-detail/index.wxss */
+.page={ min-height: 100vh; }
