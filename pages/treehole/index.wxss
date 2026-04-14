@@ -1,0 +1,49 @@
+
+/* pages/treehole/index.wxss */
+.page { min-height: 100vh; background: #f5f7fa; }
+.page-header { background: #fff; padding: calc(env(safe-area-inset-top) + 40rpx) 32rpx 32rpx; border-bottom: 1px solid #f0f0f0; }
+.page-title { font-size: 40rpx; font-weight: 700; display: block; }
+.page-sub { font-size: 24rpx; color: #999; margin-top: 8rpx; display: block; }
+.diary-list { padding: 24rpx; display: flex; flex-direction: column; gap: 20rpx; }
+.diary-item { background: #fff; border-radius: 20rpx; padding: 28rpx; box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.05); }
+.diary-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16rpx; }
+.diary-meta { display: flex; align-items: center; gap: 16rpx; }
+.diary-emotion { background: #f0fdf4; color: #07c160; padding: 4rpx 16rpx; border-radius: 999rpx; font-size: 24rpx; font-weight: 600; }
+.diary-date { font-size: 22rpx; color: #999; }
+.diary-emoji-sm { font-size: 36rpx; }
+.diary-content { font-size: 28rpx; color: #333; line-height: 1.7; display: block; margin-bottom: 12rpx; }
+.diary-reply-count { font-size: 22rpx; color: #07c160; }
+.empty-state { text-align: center; padding: 80rpx 32rpx; display: flex; flex-direction: column; align-items: center; gap: 16rpx; }
+.empty-icon { font-size: 80rpx; }
+.empty-title { font-size: 32rpx; font-weight: 600; color: #1a1a1a; }
+.empty-sub { font-size: 26rpx; color: #999; }
+.fab { position: fixed; bottom: 160rpx; right: 40rpx; width: 100rpx; height: 100rpx; background: #07c160; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8rpx 24rpx rgba(7,193,96,0.35); z-index: 100; }
+.fab-icon { font-size: 48rpx; }
+.modal-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; display: flex; align-items: flex-end; justify-content: center; }
+.modal-box { background: #fff; border-radius: 32rpx 32rpx 0 0; width: 100%; max-height: 90vh; overflow-y: auto; padding: 32rpx; box-sizing: border-box; }
+.modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24rpx; }
+.modal-title { font-size: 34rpx; font-weight: 700; }
+.modal-close { font-size: 32rpx; color: #999; padding: 8rpx; }
+.emotion-picker { margin-bottom: 24rpx; }
+.picker-label { font-size: 26rpx; color: #666; display: block; margin-bottom: 12rpx; }
+.emotion-chips { display: flex; flex-wrap: wrap; gap: 12rpx; }
+.emotion-chip { padding: 10rpx 20rpx; border: 2rpx solid #e5e5e5; border-radius: 999rpx; font-size: 26rpx; color: #333; transition: all 0.2s; }
+.emotion-chip.selected { background: #07c160; color: #fff; border-color: #07c160; }
+.diary-textarea { width: 100%; min-height: 200rpx; padding: 24rpx; background: #f9f9f9; border-radius: 16rpx; font-size: 30rpx; line-height: 1.7; border: none; outline: none; box-sizing: border-box; resize: none; }
+.char-count { font-size: 22rpx; color: #bbb; text-align: right; display: block; margin-top: 8rpx; }
+.btn-submit { width: 100%; background: #07c160; color: #fff; border-radius: 20rpx; padding: 28rpx; font-size: 32rpx; font-weight: 600; border: none; margin-top: 20rpx; }
+.reply-box { display: flex; gap: 12rpx; margin-top: 20rpx; }
+.reply-input { flex: 1; padding: 20rpx 24rpx; background: #f5f5f5; border-radius: 16rpx; font-size: 28rpx; }
+.btn-send { background: #07c160; color: #fff; border-radius: 16rpx; padding: 20rpx 32rpx; font-size: 28rpx; border: none; flex-shrink: 0; }
+.btn-delete-sm { background: transparent; color: #dc2626; border: none; font-size: 24rpx; margin-top: 16rpx; text-align: center; }
+.msg-item { padding: 16rpx 20rpx; border-radius: 16rpx; margin-bottom: 12rpx; }
+.msg-ai { background: #f5f5f5; }
+.msg-user { background: #f0fdf4; }
+.msg-role { font-size: 22rpx; color: #999; display: block; margin-bottom: 4rpx; }
+.msg-text { font-size: 28rpx; line-height: 1.6; }
+.detail-content { font-size: 30rpx; line-height: 1.7; color: #1a1a1a; display: block; margin-bottom: 24rpx; padding: 24rpx; background: #fafafa; border-radius: 16rpx; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.gap-2 { gap: 16rpx; }
+.text-xs { font-size: 22rpx; }
+.text-gray { color: #999; }
