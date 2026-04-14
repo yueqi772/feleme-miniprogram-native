@@ -1,0 +1,42 @@
+/* pages/test/index.wxss */
+.page { min-height: 100vh; background: linear-gradient(180deg, #f0fdf4 0%, #f5f7fa 60%); display: flex; flex-direction: column; }
+
+/* Progress */
+.progress-header { padding: calc(env(safe-area-inset-top) + 24rpx) 32rpx 32rpx; background: #fff; box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.06); }
+.progress-info { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20rpx; }
+.progress-num { font-size: 28rpx; font-weight: 700; color: #07c160; }
+.progress-cat { font-size: 24rpx; color: #666; }
+.progress-bar-bg { height: 10rpx; background: #f0f0f0; border-radius: 999rpx; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: linear-gradient(90deg, #07c160, #10b981); border-radius: 999rpx; transition: width 0.4s ease; }
+
+/* Question */
+.question-area { flex: 1; padding: 32rpx 32rpx 48rpx; display: flex; flex-direction: column; gap: 32rpx; }
+
+.question-card { background: #fff; border-radius: 24rpx; padding: 40rpx 36rpx; box-shadow: 0 8rpx 32rpx rgba(0,0,0,0.08); }
+.question-text { font-size: 34rpx; line-height: 1.7; color: #1a1a1a; font-weight: 500; }
+
+/* Options */
+.options-list { display: flex; flex-direction: column; gap: 16rpx; }
+.option-item {
+  background: #fff; border: 3rpx solid #e8e8e8;
+  border-radius: 16rpx; padding: 28rpx 32rpx;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.2s; position: relative;
+}
+.option-item:active { background: #f9fafb; transform: scale(0.99); }
+.option-item.selected { border-color: #07c160; background: #f0fdf4; }
+.option-text { font-size: 30rpx; color: #333; flex: 1; }
+.option-check { width: 44rpx; height: 44rpx; border-radius: 50%; background: #e8e8e8; display: flex; align-items: center; justify-content: center; }
+.option-item.selected .option-check { background: #07c160; }
+.check-icon { color: #fff; font-size: 26rpx; font-weight: 700; }
+
+/* Navigation */
+.question-nav { display: flex; align-items: center; gap: 16rpx; margin-top: auto; padding-top: 16rpx; }
+.btn-prev { background: #fff; border: 2rpx solid #e5e5e5; border-radius: 16rpx; padding: 20rpx 32rpx; font-size: 28rpx; color: #666; flex-shrink: 0; }
+.nav-tip { font-size: 22rpx; color: #bbb; flex: 1; text-align: center; }
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30rpx); } to { opacity: 1; transform: translateY(0); } }
+.anim-fade-in { animation: fadeIn 0.3s ease-out; }
+.anim-slide-up { animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
