@@ -1,2 +1,8 @@
-// pages/onboarding/index.js
-Page={ data={ pageTitle: "引导页" } , onLoad()={ console.log("[pages/onboarding]") } };
+Page({
+  data: {
+    pageTitle: 'onboarding'
+  },
+  onLoad() {
+    console.log('[pages/onboarding] loaded');
+  }
+});
