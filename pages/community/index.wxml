@@ -1,0 +1,44 @@
+<view class="page">
+  <view class="page-header">
+    <text class="page-title">💬 互助社区</text>
+    <text class="page-sub">分享经历，找到同类人</text>
+  </view>
+  <view class="post-list">
+    <view wx:for="{{posts}}" wx:key="id" class="post-card">
+      <view class="post-author-row">
+        <view class="avatar-sm">{{item.author.slice(0,1)}}</view>
+        <view class="author-info">
+          <text class="author-name">{{item.author}}</text>
+          <text class="post-meta">{{item.industry || '互联网'}} · {{item.date}}</text>
+        </view>
+      </view>
+      <text class="post-content" bindtap="goDetail" data-id="{{item.id}}">{{item.content}}</text>
+      <view class="post-actions">
+        <view class="action-btn {{item.liked ? 'liked' : ''}}" bindtap="toggleLike" data-id="{{item.id}}">
+          <text>{{item.liked ? '❤️' : '🤍'}} {{item.likes}}</text>
+        </view>
+        <view class="action-btn" bindtap="goDetail" data-id="{{item.id}}">
+          <text>💬 {{item.comments ? item.comments.length : 0}}</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{posts.length === 0}}" class="empty-state">
+      <text class="empty-icon">💬</text>
+      <text class="empty-title">还没有帖子</text>
+      <text class="empty-sub">成为第一个分享的人</text>
+    </view>
+  </view>
+  <view class="fab" bindtap="openNewPost"><text class="fab-icon">+</text></view>
+
+  <view wx:if="{{showNewPost}}" class="modal-mask" bindtap="closeNewPost">
+    <view class="modal-box" catchtap="noop">
+      <view class="modal-header">
+        <text class="modal-title">发布帖子</text>
+        <text class="modal-close" bindtap="closeNewPost">✕</text>
+      </view>
+      <input class="input-field" placeholder="你的行业（选填）" value="{{postIndustry}}" bindinput="onIndustryInput" />
+      <textarea class="textarea-field" placeholder="分享你的职场经历或困惑..." value="{{postContent}}" bindinput="onContentInput" maxlength="1000" />
+      <button class="btn-submit" bindtap="submitPost">发布帖子</button>
+    </view>
+  </view>
+</view>
